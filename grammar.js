@@ -1,3 +1,5 @@
+// TODO: we may need a word rule, and text to become repeat(word)
+
 module.exports = grammar({
   name: 'org',
 
@@ -19,7 +21,6 @@ module.exports = grammar({
       '\n'
     ),
 
-    // this one is super-general: it might want a negative precedence
     text: $ => seq(token(prec(-1, /.+/)), '\n'),
 
     comment: $ => /# .*\n/,
@@ -43,7 +44,7 @@ module.exports = grammar({
       token(prec(1, choice("BEGIN_SRC", "begin_src"))),
       field('language', optional(/ [A-z]+/)),
       '\n',
-      /[^(#+)]*/,
+      /[^(#\+)]*/,
       $._poundplus,
       token(prec(1, choice("END_SRC", "end_src"))),
       '\n'
@@ -52,7 +53,8 @@ module.exports = grammar({
     example: $=> seq(
       $._poundplus,
       choice("BEGIN_EXAMPLE", "begin_example"),
-      repeat($.text),
+      '\n',
+      /[^(#\+)]*/,
       $._poundplus,
       choice("END_EXAMPLE", "end_example"),
       '\n'

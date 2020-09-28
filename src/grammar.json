@@ -159,7 +159,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "[^(#+)]*"
+          "value": "[^(#\\+)]*"
         },
         {
           "type": "SYMBOL",
@@ -212,11 +212,12 @@
           ]
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "text"
-          }
+          "type": "STRING",
+          "value": "\n"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^(#\\+)]*"
         },
         {
           "type": "SYMBOL",
