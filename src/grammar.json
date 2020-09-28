@@ -86,19 +86,15 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "#+"
-        },
-        {
           "type": "CHOICE",
           "members": [
             {
               "type": "STRING",
-              "value": "BEGIN_SRC"
+              "value": "#+BEGIN_SRC"
             },
             {
               "type": "STRING",
-              "value": "begin_src"
+              "value": "#+begin_src"
             }
           ]
         },
@@ -114,11 +110,11 @@
           "members": [
             {
               "type": "STRING",
-              "value": "END_SRC"
+              "value": "#+END_SRC"
             },
             {
               "type": "STRING",
-              "value": "end_src"
+              "value": "#+end_src"
             }
           ]
         },
@@ -170,7 +166,9 @@
   ],
   "conflicts": [],
   "externals": [],
-  "inline": [],
+  "inline": [
+    "text"
+  ],
   "supertypes": []
 }
 

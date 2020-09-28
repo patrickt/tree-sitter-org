@@ -1,7 +1,11 @@
 module.exports = grammar({
   name: 'org',
 
+  // this isn't right: both spaces and newlines are significant
+  // that is to say '#foo' and '# foo' and '#+foo' must all be parsed differently
   extras: $ => [/\s/],
+
+  inline: $ => [$.text],
 
   rules: {
     document: $ => seq(
@@ -28,10 +32,9 @@ module.exports = grammar({
     ),
 
     code: $=> seq(
-      '#+',
-      choice("BEGIN_SRC", "begin_src"),
+      choice("#+BEGIN_SRC", "#+begin_src"),
       repeat($.text),
-      choice("END_SRC", "end_src"),
+      choice("#+END_SRC", "#+end_src"),
       '\n'
     ),
 

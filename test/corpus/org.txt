@@ -1,4 +1,11 @@
 =====================================
+Blank document
+=====================================
+---
+
+(document)
+
+=====================================
 One-line file
 =====================================
 
@@ -7,7 +14,7 @@ mach
 ---
 
 (document
-  (block (line (text))))
+  (block (line)))
 
 =====================================
 Just comments
@@ -29,7 +36,7 @@ hashtag #blessed
 ---
 
 (document
-  (block (line (text))))
+  (block (line)))
 
 =====================================
 Text then a non-comment
@@ -41,8 +48,8 @@ hashtag
 ---
 
 (document
-  (block (line (text)))
-  (block (line (text))))
+  (block (line))
+  (block (line)))
 
 =====================================
 Interspersed comments/text
@@ -55,9 +62,9 @@ I used to read Word Up! magazine
 ---
 
 (document
-  (block (line (text)))
+  (block (line))
   (block (line (comment)))
-  (block (line (text))))
+  (block (line)))
 
 =====================================
 Header
@@ -69,7 +76,7 @@ hello
 
 (document
   (meta)
-  (block (line (text))))
+  (block (line)))
 
 =====================================
 Code sample
@@ -82,5 +89,4 @@ hello
 ---
 
 (document
-  (meta)
   (block (code)))
