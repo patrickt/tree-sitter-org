@@ -1,41 +1,60 @@
 {
   "name": "org",
   "rules": {
-    "source_file": {
+    "document": {
       "type": "SEQ",
       "members": [
         {
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "comment_line"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "block"
+            "name": "line"
           }
         }
       ]
     },
-    "block": {
-      "type": "PATTERN",
-      "value": "[A-z]+"
+    "line": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "comment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
     },
-    "comment_line": {
+    "text": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": ".+"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "comment": {
       "type": "TOKEN",
       "content": {
         "type": "SEQ",
         "members": [
           {
             "type": "STRING",
-            "value": "#"
+            "value": "# "
           },
           {
             "type": "PATTERN",
             "value": ".*"
+          },
+          {
+            "type": "STRING",
+            "value": "\n"
           }
         ]
       }
@@ -44,7 +63,7 @@
   "extras": [
     {
       "type": "PATTERN",
-      "value": "[\\s\\uFEFF\\u3000]+"
+      "value": "\\s"
     }
   ],
   "conflicts": [],

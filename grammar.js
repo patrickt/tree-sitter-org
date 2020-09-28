@@ -1,16 +1,18 @@
 module.exports = grammar({
   name: 'org',
 
-  extras: $ => [/[\s\uFEFF\u3000]+/],
-
   rules: {
-    source_file: $ => seq(
-      repeat($.comment_line),
-      repeat($.block),
+    document: $ => seq(
+      repeat($.line),
     ),
 
-    block: $ => /[A-z]+/,
+    line: $ => choice(
+      $.comment,
+      $.text,
+    ),
 
-    comment_line: $ => token(seq('#', /.*/)),
+    text: $ => seq(/.+/, '\n'),
+
+    comment: $ => token(seq('# ', /.*/, '\n')),
   }
 });

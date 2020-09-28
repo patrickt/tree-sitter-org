@@ -1,6 +1,6 @@
 [
   {
-    "type": "source_file",
+    "type": "document",
     "named": true,
     "fields": {},
     "children": {
@@ -8,22 +8,42 @@
       "required": false,
       "types": [
         {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "comment_line",
+          "type": "line",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "block",
-    "named": true
+    "type": "line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
   },
   {
-    "type": "comment_line",
+    "type": "text",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": "comment",
     "named": true
   }
 ]

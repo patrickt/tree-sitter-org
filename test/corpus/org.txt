@@ -6,8 +6,8 @@ mach
 
 ---
 
-(source_file
-  (block))
+(document
+  (line (text)))
 
 =====================================
 Just comments
@@ -17,5 +17,16 @@ Just comments
 
 ---
 
-(source_file
-  (comment_line))
+(document
+  (line (comment)))
+
+=====================================
+Comments + text
+=====================================
+
+hashtag #blessed
+
+---
+
+(document
+  (line (text)))
