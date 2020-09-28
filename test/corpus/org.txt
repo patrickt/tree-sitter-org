@@ -90,3 +90,46 @@ hello
 
 (document
   (block (code)))
+
+=====================================
+Meta, then code sample
+=====================================
+#+AUTHOR: patrickt
+
+#+BEGIN_SRC
+hello
+#+END_SRC
+
+---
+
+(document
+  (meta)
+  (block (code)))
+
+=====================================
+Comment, then code sample
+=====================================
+# hi
+
+#+BEGIN_SRC
+hello
+#+END_SRC
+
+---
+
+(document
+  (block (line (comment)))
+  (block (code)))
+
+=====================================
+Comment, then code sample
+=====================================
+# hi
+
+#+AUTHOR: hello
+
+---
+
+(document
+  (comment)
+  (meta))
