@@ -7,7 +7,7 @@ mach
 ---
 
 (document
-  (line (text)))
+  (block (line (text))))
 
 =====================================
 Just comments
@@ -18,7 +18,7 @@ Just comments
 ---
 
 (document
-  (line (comment)))
+  (block (line (comment))))
 
 =====================================
 Comments + text on the same line
@@ -29,7 +29,7 @@ hashtag #blessed
 ---
 
 (document
-  (line (text)))
+  (block (line (text))))
 
 =====================================
 Text then a non-comment
@@ -41,8 +41,8 @@ hashtag
 ---
 
 (document
-  (line (text))
-  (line (text)))
+  (block (line (text)))
+  (block (line (text))))
 
 =====================================
 Interspersed comments/text
@@ -55,9 +55,9 @@ I used to read Word Up! magazine
 ---
 
 (document
-  (line (text))
-  (line (comment))
-  (line (text)))
+  (block (line (text)))
+  (block (line (comment)))
+  (block (line (text))))
 
 =====================================
 Header
@@ -69,4 +69,18 @@ hello
 
 (document
   (meta)
-  (line (text)))
+  (block (line (text))))
+
+=====================================
+Code sample
+=====================================
+
+#+BEGIN_SRC
+hello
+#+END_SRC
+
+---
+
+(document
+  (meta)
+  (block (code)))

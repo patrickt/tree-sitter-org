@@ -1,5 +1,39 @@
 [
   {
+    "type": "block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "code",
+          "named": true
+        },
+        {
+          "type": "line",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "code",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "document",
     "named": true,
     "fields": {},
@@ -8,7 +42,7 @@
       "required": false,
       "types": [
         {
-          "type": "line",
+          "type": "block",
           "named": true
         },
         {
@@ -47,8 +81,28 @@
     "named": false
   },
   {
+    "type": "#+",
+    "named": false
+  },
+  {
+    "type": "BEGIN_SRC",
+    "named": false
+  },
+  {
+    "type": "END_SRC",
+    "named": false
+  },
+  {
+    "type": "begin_src",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
+  },
+  {
+    "type": "end_src",
+    "named": false
   },
   {
     "type": "meta",

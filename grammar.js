@@ -1,10 +1,12 @@
 module.exports = grammar({
   name: 'org',
 
+  extras: $ => [/\s/],
+
   rules: {
     document: $ => seq(
       repeat($.meta),
-      repeat($.line),
+      repeat($.block),
     ),
 
     meta: $ => token(seq(
@@ -12,12 +14,25 @@ module.exports = grammar({
       field('key', /[^:]+/),
       ': ',
       field('value', /.+/),
-      '\n',
+      '\n'
     )),
+
+    block: $ => choice(
+      $.code,
+      $.line,
+    ),
 
     line: $ => choice(
       $.comment,
       $.text,
+    ),
+
+    code: $=> seq(
+      '#+',
+      choice("BEGIN_SRC", "begin_src"),
+      repeat($.text),
+      choice("END_SRC", "end_src"),
+      '\n'
     ),
 
     text: $ => seq(/.+/, '\n'),

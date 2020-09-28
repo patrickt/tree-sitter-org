@@ -15,7 +15,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "line"
+            "name": "block"
           }
         }
       ]
@@ -56,6 +56,19 @@
         ]
       }
     },
+    "block": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "code"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line"
+        }
+      ]
+    },
     "line": {
       "type": "CHOICE",
       "members": [
@@ -66,6 +79,52 @@
         {
           "type": "SYMBOL",
           "name": "text"
+        }
+      ]
+    },
+    "code": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#+"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "BEGIN_SRC"
+            },
+            {
+              "type": "STRING",
+              "value": "begin_src"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "text"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "END_SRC"
+            },
+            {
+              "type": "STRING",
+              "value": "end_src"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
         }
       ]
     },
