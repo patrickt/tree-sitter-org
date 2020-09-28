@@ -45,3 +45,15 @@ I used to read Word Up! magazine
   (line (text))
   (line (comment))
   (line (text)))
+
+=====================================
+Header
+=====================================
+#+AUTHOR: patrick
+hello
+
+---
+
+(document
+  (meta)
+  (line (text)))

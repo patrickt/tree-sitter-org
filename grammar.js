@@ -3,7 +3,16 @@ module.exports = grammar({
 
   rules: {
     document: $ => seq(
+      repeat($.meta),
       repeat($.line),
+    ),
+
+    meta: $ => seq(
+      '#+',
+      field('key', /[^:]+/),
+      ': ',
+      field('value', /.+/),
+      '\n',
     ),
 
     line: $ => choice(
@@ -11,7 +20,7 @@ module.exports = grammar({
       $.text,
     ),
 
-    text: $ => seq(/.+/, '\n'),
+    text: $ => seq(/[^#].+/, '\n'),
 
     comment: $ => token(seq('# ', /.*/, '\n')),
   }

@@ -10,6 +10,10 @@
         {
           "type": "line",
           "named": true
+        },
+        {
+          "type": "meta",
+          "named": true
         }
       ]
     }
@@ -34,12 +38,25 @@
     }
   },
   {
+    "type": "meta",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "text",
     "named": true,
     "fields": {}
   },
   {
     "type": "\n",
+    "named": false
+  },
+  {
+    "type": "#+",
+    "named": false
+  },
+  {
+    "type": ": ",
     "named": false
   },
   {
