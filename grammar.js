@@ -40,10 +40,6 @@ module.exports = grammar({
 
     text: $ => seq(/.+/, '\n'),
 
-    comment: $ => token(seq(
-      '# ',
-      /.*/,
-      '\n'
-    )),
+    comment: $ => /# [^\n]*\n/,
   }
 });

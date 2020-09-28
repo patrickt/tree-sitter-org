@@ -138,24 +138,8 @@
       ]
     },
     "comment": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "# "
-          },
-          {
-            "type": "PATTERN",
-            "value": ".*"
-          },
-          {
-            "type": "STRING",
-            "value": "\n"
-          }
-        ]
-      }
+      "type": "PATTERN",
+      "value": "# [^\\n]*\\n"
     }
   },
   "extras": [
