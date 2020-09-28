@@ -118,28 +118,32 @@
           "name": "_poundplus"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "BEGIN_SRC"
-            },
-            {
-              "type": "STRING",
-              "value": "begin_src"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        },
-        {
-          "type": "REPEAT",
+          "type": "TOKEN",
           "content": {
-            "type": "SYMBOL",
-            "name": "text"
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "BEGIN_SRC"
+                },
+                {
+                  "type": "STRING",
+                  "value": "begin_src"
+                }
+              ]
+            }
           }
+        },
+        {
+          "type": "PATTERN",
+          "value": "( [A-z]+)?\\n"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^(#+)]*"
         },
         {
           "type": "SYMBOL",

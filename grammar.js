@@ -40,9 +40,9 @@ module.exports = grammar({
 
     code: $=> seq(
       $._poundplus,
-      choice("BEGIN_SRC", "begin_src"),
-      '\n',
-      repeat($.text),
+      token(prec(1, choice("BEGIN_SRC", "begin_src"))),
+      /( [A-z]+)?\n/,
+      /[^(#+)]*/,
       $._poundplus,
       choice("END_SRC", "end_src"),
       '\n'

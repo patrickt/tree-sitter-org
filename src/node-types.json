@@ -84,10 +84,6 @@
     "named": false
   },
   {
-    "type": "BEGIN_SRC",
-    "named": false
-  },
-  {
     "type": "END_EXAMPLE",
     "named": false
   },
@@ -97,10 +93,6 @@
   },
   {
     "type": "begin_example",
-    "named": false
-  },
-  {
-    "type": "begin_src",
     "named": false
   },
   {

@@ -121,7 +121,7 @@ goodbye
 Code sample with language
 =====================================
 
-#+BEGIN_SRC
+#+BEGIN_SRC haskell
 putStrLn "hello"
 #+END_SRC
 
