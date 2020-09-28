@@ -138,8 +138,24 @@
           }
         },
         {
-          "type": "PATTERN",
-          "value": "( [A-z]+)?\\n"
+          "type": "FIELD",
+          "name": "language",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": " [A-z]+"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
         },
         {
           "type": "PATTERN",
@@ -150,17 +166,24 @@
           "name": "_poundplus"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "END_SRC"
-            },
-            {
-              "type": "STRING",
-              "value": "end_src"
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "END_SRC"
+                },
+                {
+                  "type": "STRING",
+                  "value": "end_src"
+                }
+              ]
             }
-          ]
+          }
         },
         {
           "type": "STRING",

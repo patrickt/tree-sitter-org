@@ -41,10 +41,11 @@ module.exports = grammar({
     code: $=> seq(
       $._poundplus,
       token(prec(1, choice("BEGIN_SRC", "begin_src"))),
-      /( [A-z]+)?\n/,
+      field('language', optional(/ [A-z]+/)),
+      '\n',
       /[^(#+)]*/,
       $._poundplus,
-      choice("END_SRC", "end_src"),
+      token(prec(1, choice("END_SRC", "end_src"))),
       '\n'
     ),
 
