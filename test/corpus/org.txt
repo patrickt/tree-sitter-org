@@ -32,6 +32,19 @@ hashtag #blessed
   (line (text)))
 
 =====================================
+Text then a non-comment
+=====================================
+
+hashtag
+#blessed
+
+---
+
+(document
+  (line (text))
+  (line (text)))
+
+=====================================
 Interspersed comments/text
 =====================================
 

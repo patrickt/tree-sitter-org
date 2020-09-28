@@ -7,21 +7,25 @@ module.exports = grammar({
       repeat($.line),
     ),
 
-    meta: $ => seq(
+    meta: $ => token(seq(
       '#+',
       field('key', /[^:]+/),
       ': ',
       field('value', /.+/),
       '\n',
-    ),
+    )),
 
     line: $ => choice(
       $.comment,
       $.text,
     ),
 
-    text: $ => seq(/[^#].+/, '\n'),
+    text: $ => seq(/.+/, '\n'),
 
-    comment: $ => token(seq('# ', /.*/, '\n')),
+    comment: $ => token(seq(
+      '# ',
+      /.*/,
+      '\n'
+    )),
   }
 });
