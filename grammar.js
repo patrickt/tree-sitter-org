@@ -1,16 +1,14 @@
 module.exports = grammar({
   name: 'org',
 
-  // this isn't right: both spaces and newlines are significant
-  // that is to say '#foo' and '# foo' and '#+foo' must all be parsed differently
+  // Leaving the spaces up to tree-sitter makes for a bit of a cleaner parser
+  // at the cost of some strict standard compliance
   extras: $ => [/\s/],
 
   inline: $ => [$.text],
 
   rules: {
-    document: $ => seq(
-      repeat($.block),
-    ),
+    document: $ => repeat($.block),
 
     // why does this not
     meta: $ => seq(
@@ -22,7 +20,7 @@ module.exports = grammar({
     ),
 
     // this one is super-general: it might want a negative precedence
-    text: $ => seq(/.+/, '\n'),
+    text: $ => seq(token(prec(-1, /.+/)), '\n'),
 
     comment: $ => /# .*\n/,
 

@@ -2,16 +2,11 @@
   "name": "org",
   "rules": {
     "document": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "block"
-          }
-        }
-      ]
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "block"
+      }
     },
     "meta": {
       "type": "SEQ",
@@ -50,8 +45,15 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": ".+"
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": -1,
+            "content": {
+              "type": "PATTERN",
+              "value": ".+"
+            }
+          }
         },
         {
           "type": "STRING",
