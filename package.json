@@ -1,0 +1,11 @@
+{
+  "name": "tree-sitter-org",
+  "version": "0.0.0",
+  "description": "A tree-sitter grammar for Org-mode documents.",
+  "main": "grammar.js",
+  "scripts": {
+    "test": "tree-sitter test"
+  },
+  "author": "Patrick Thomson",
+  "license": "MIT"
+}
