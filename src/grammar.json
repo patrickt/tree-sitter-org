@@ -14,40 +14,37 @@
       ]
     },
     "meta": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "#+"
-          },
-          {
-            "type": "FIELD",
-            "name": "key",
-            "content": {
-              "type": "PATTERN",
-              "value": "[^:]+"
-            }
-          },
-          {
-            "type": "STRING",
-            "value": ": "
-          },
-          {
-            "type": "FIELD",
-            "name": "value",
-            "content": {
-              "type": "PATTERN",
-              "value": ".+"
-            }
-          },
-          {
-            "type": "STRING",
-            "value": "\n"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_poundplus"
+        },
+        {
+          "type": "FIELD",
+          "name": "key",
+          "content": {
+            "type": "PATTERN",
+            "value": "[^:\\n]+"
           }
-        ]
-      }
+        },
+        {
+          "type": "STRING",
+          "value": ": "
+        },
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "PATTERN",
+            "value": ".+"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
     },
     "text": {
       "type": "SEQ",
@@ -64,7 +61,7 @@
     },
     "comment": {
       "type": "PATTERN",
-      "value": "# [^\\n]*\\n"
+      "value": "# .*\\n"
     },
     "block": {
       "type": "CHOICE",
@@ -100,15 +97,19 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "SYMBOL",
+          "name": "_poundplus"
+        },
+        {
           "type": "CHOICE",
           "members": [
             {
               "type": "STRING",
-              "value": "#+BEGIN_SRC"
+              "value": "BEGIN_SRC"
             },
             {
               "type": "STRING",
-              "value": "#+begin_src"
+              "value": "begin_src"
             }
           ]
         },
@@ -120,15 +121,19 @@
           }
         },
         {
+          "type": "SYMBOL",
+          "name": "_poundplus"
+        },
+        {
           "type": "CHOICE",
           "members": [
             {
               "type": "STRING",
-              "value": "#+END_SRC"
+              "value": "END_SRC"
             },
             {
               "type": "STRING",
-              "value": "#+end_src"
+              "value": "end_src"
             }
           ]
         },
@@ -137,6 +142,17 @@
           "value": "\n"
         }
       ]
+    },
+    "_poundplus": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "STRING",
+          "value": "#+"
+        }
+      }
     }
   },
   "extras": [

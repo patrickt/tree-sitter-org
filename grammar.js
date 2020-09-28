@@ -13,17 +13,18 @@ module.exports = grammar({
     ),
 
     // why does this not
-    meta: $ => token(seq(
-      '#+',
-      field('key', /[^:]+/),
+    meta: $ => seq(
+      $._poundplus,
+      field('key', /[^:\n]+/),
       ': ',
       field('value', /.+/),
       '\n'
-    )),
+    ),
 
+    // this one is super-general: it might want a negative precedence
     text: $ => seq(/.+/, '\n'),
 
-    comment: $ => /# [^\n]*\n/,
+    comment: $ => /# .*\n/,
 
     block: $ => choice(
       $.meta,
@@ -37,10 +38,14 @@ module.exports = grammar({
     ),
 
     code: $=> seq(
-      choice("#+BEGIN_SRC", "#+begin_src"),
+      $._poundplus,
+      choice("BEGIN_SRC", "begin_src"),
       repeat($.text),
-      choice("#+END_SRC", "#+end_src"),
+      $._poundplus,
+      choice("END_SRC", "end_src"),
       '\n'
     ),
+
+    _poundplus: $ => token(prec(1, "#+")),
   }
 });

@@ -58,23 +58,28 @@
     }
   },
   {
+    "type": "meta",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "\n",
     "named": false
   },
   {
-    "type": "#+BEGIN_SRC",
+    "type": ": ",
     "named": false
   },
   {
-    "type": "#+END_SRC",
+    "type": "BEGIN_SRC",
     "named": false
   },
   {
-    "type": "#+begin_src",
+    "type": "END_SRC",
     "named": false
   },
   {
-    "type": "#+end_src",
+    "type": "begin_src",
     "named": false
   },
   {
@@ -82,7 +87,7 @@
     "named": true
   },
   {
-    "type": "meta",
-    "named": true
+    "type": "end_src",
+    "named": false
   }
 ]
