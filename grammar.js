@@ -27,6 +27,7 @@ module.exports = grammar({
     block: $ => choice(
       $.meta,
       $.code,
+      $.example,
       $.line,
     ),
 
@@ -35,15 +36,26 @@ module.exports = grammar({
       $.text,
     ),
 
+    _poundplus: $ => token(prec(1, "#+")),
+
     code: $=> seq(
       $._poundplus,
       choice("BEGIN_SRC", "begin_src"),
+      '\n',
       repeat($.text),
       $._poundplus,
       choice("END_SRC", "end_src"),
       '\n'
     ),
 
-    _poundplus: $ => token(prec(1, "#+")),
+    example: $=> seq(
+      $._poundplus,
+      choice("BEGIN_EXAMPLE", "begin_example"),
+      repeat($.text),
+      $._poundplus,
+      choice("END_EXAMPLE", "end_example"),
+      '\n'
+    ),
+
   }
 });

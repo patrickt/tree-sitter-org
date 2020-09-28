@@ -12,6 +12,10 @@
           "named": true
         },
         {
+          "type": "example",
+          "named": true
+        },
+        {
           "type": "line",
           "named": true
         },
@@ -43,6 +47,11 @@
     }
   },
   {
+    "type": "example",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "line",
     "named": true,
     "fields": {},
@@ -71,11 +80,23 @@
     "named": false
   },
   {
+    "type": "BEGIN_EXAMPLE",
+    "named": false
+  },
+  {
     "type": "BEGIN_SRC",
     "named": false
   },
   {
+    "type": "END_EXAMPLE",
+    "named": false
+  },
+  {
     "type": "END_SRC",
+    "named": false
+  },
+  {
+    "type": "begin_example",
     "named": false
   },
   {
@@ -85,6 +106,10 @@
   {
     "type": "comment",
     "named": true
+  },
+  {
+    "type": "end_example",
+    "named": false
   },
   {
     "type": "end_src",

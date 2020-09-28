@@ -84,6 +84,45 @@ Code sample
 
 #+BEGIN_SRC
 hello
+hello
+#+END_SRC
+
+---
+
+(document
+  (block (code)))
+
+=====================================
+Two samples
+=====================================
+
+#+BEGIN_SRC
+hello
+hello
+#+END_SRC
+
+done
+
+
+#+BEGIN_SRC
+goodbye
+goodbye
+#+END_SRC
+
+
+---
+
+(document
+  (block (code))
+  (block (line))
+  (block (code)))
+
+=====================================
+Code sample with language
+=====================================
+
+#+BEGIN_SRC
+putStrLn "hello"
 #+END_SRC
 
 ---
@@ -122,7 +161,7 @@ hello
   (block (code)))
 
 =====================================
-Comment, then meta paramers
+Comment, then meta params
 =====================================
 # hi
 
@@ -133,3 +172,21 @@ Comment, then meta paramers
 (document
   (block (line (comment)))
   (block (meta)))
+
+=====================================
+Comment, meta, and example
+=====================================
+# hi
+
+#+AUTHOR: hello
+
+#+BEGIN_EXAMPLE
+hey
+#+END_EXAMPLE
+
+---
+
+(document
+  (block (line (comment)))
+  (block (meta))
+  (block (example)))
