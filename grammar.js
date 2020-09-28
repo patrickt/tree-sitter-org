@@ -35,7 +35,20 @@ module.exports = grammar({
 
     line: $ => choice(
       $.comment,
-      $.text,
+      seq(repeat1($._word), '\n')
+    ),
+
+    _word: $ => choice(
+      $.bold,
+      $._bareword
+    ),
+
+    _bareword: $ => token(prec(-1, /[A-z#!]+/)),
+
+    bold: $ => seq(
+      token(prec(1, '*')),
+      $._bareword,
+      token(prec(1, '*')),
     ),
 
     _poundplus: $ => token(prec(1, "#+")),
