@@ -2,10 +2,28 @@
   {
     "type": "source_file",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "comment_line",
+          "named": true
+        }
+      ]
+    }
   },
   {
-    "type": "hello",
-    "named": false
+    "type": "block",
+    "named": true
+  },
+  {
+    "type": "comment_line",
+    "named": true
   }
 ]
