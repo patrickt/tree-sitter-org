@@ -12,7 +12,6 @@ module.exports = grammar({
   rules: {
     document: $ => repeat($.block),
 
-    // why does this not
     meta: $ => seq(
       $._poundplus,
       field('key', /[^:\n]+/),
@@ -44,7 +43,7 @@ module.exports = grammar({
       token(prec(1, choice("BEGIN_SRC", "begin_src"))),
       field('language', optional(/ [A-z]+/)),
       '\n',
-      /[^(#\+)]*/,
+      field('contents', /[^(#\+)]*/),
       $._poundplus,
       token(prec(1, choice("END_SRC", "end_src"))),
       '\n'
@@ -54,7 +53,7 @@ module.exports = grammar({
       $._poundplus,
       choice("BEGIN_EXAMPLE", "begin_example"),
       '\n',
-      /[^(#\+)]*/,
+      field('contents', /[^(#\+)]*/),
       $._poundplus,
       choice("END_EXAMPLE", "end_example"),
       '\n'
