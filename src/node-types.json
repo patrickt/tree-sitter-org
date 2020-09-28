@@ -14,6 +14,10 @@
         {
           "type": "line",
           "named": true
+        },
+        {
+          "type": "meta",
+          "named": true
         }
       ]
     }
@@ -33,10 +37,6 @@
       "types": [
         {
           "type": "block",
-          "named": true
-        },
-        {
-          "type": "meta",
           "named": true
         }
       ]

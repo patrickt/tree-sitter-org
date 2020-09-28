@@ -8,13 +8,6 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "meta"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
             "name": "block"
           }
         }
@@ -56,9 +49,30 @@
         ]
       }
     },
+    "text": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": ".+"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "comment": {
+      "type": "PATTERN",
+      "value": "# [^\\n]*\\n"
+    },
     "block": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "meta"
+        },
         {
           "type": "SYMBOL",
           "name": "code"
@@ -123,23 +137,6 @@
           "value": "\n"
         }
       ]
-    },
-    "text": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": ".+"
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
-    },
-    "comment": {
-      "type": "PATTERN",
-      "value": "# [^\\n]*\\n"
     }
   },
   "extras": [

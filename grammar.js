@@ -9,10 +9,10 @@ module.exports = grammar({
 
   rules: {
     document: $ => seq(
-      repeat($.meta),
       repeat($.block),
     ),
 
+    // why does this not
     meta: $ => token(seq(
       '#+',
       field('key', /[^:]+/),
@@ -21,7 +21,12 @@ module.exports = grammar({
       '\n'
     )),
 
+    text: $ => seq(/.+/, '\n'),
+
+    comment: $ => /# [^\n]*\n/,
+
     block: $ => choice(
+      $.meta,
       $.code,
       $.line,
     ),
@@ -37,9 +42,5 @@ module.exports = grammar({
       choice("#+END_SRC", "#+end_src"),
       '\n'
     ),
-
-    text: $ => seq(/.+/, '\n'),
-
-    comment: $ => /# [^\n]*\n/,
   }
 });
