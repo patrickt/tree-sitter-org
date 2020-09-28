@@ -21,7 +21,7 @@ Just comments
   (line (comment)))
 
 =====================================
-Comments + text
+Comments + text on the same line
 =====================================
 
 hashtag #blessed
@@ -29,4 +29,19 @@ hashtag #blessed
 ---
 
 (document
+  (line (text)))
+
+=====================================
+Interspersed comments/text
+=====================================
+
+it was
+# all a dream
+I used to read Word Up! magazine
+
+---
+
+(document
+  (line (text))
+  (line (comment))
   (line (text)))
