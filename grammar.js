@@ -28,6 +28,8 @@ module.exports = grammar({
       $.meta,
       $.code,
       $.example,
+      $.quote,
+      $.verse,
       $.line,
     ),
 
@@ -56,6 +58,26 @@ module.exports = grammar({
       field('contents', /[^(#\+)]*/),
       $._poundplus,
       choice("END_EXAMPLE", "end_example"),
+      '\n'
+    ),
+
+    quote: $=> seq(
+      $._poundplus,
+      choice("BEGIN_QUOTE", "begin_quote"),
+      '\n',
+      field('contents', /[^(#\+)]*/),
+      $._poundplus,
+      choice("END_QUOTE", "end_quote"),
+      '\n'
+    ),
+
+    verse: $=> seq(
+      $._poundplus,
+      choice("BEGIN_VERSE", "begin_verse"),
+      '\n',
+      field('contents', /[^(#\+)]*/),
+      $._poundplus,
+      choice("END_VERSE", "end_verse"),
       '\n'
     ),
 

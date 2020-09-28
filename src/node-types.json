@@ -22,6 +22,14 @@
         {
           "type": "meta",
           "named": true
+        },
+        {
+          "type": "quote",
+          "named": true
+        },
+        {
+          "type": "verse",
+          "named": true
         }
       ]
     }
@@ -72,6 +80,16 @@
     "fields": {}
   },
   {
+    "type": "quote",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "verse",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "\n",
     "named": false
   },
@@ -84,11 +102,35 @@
     "named": false
   },
   {
+    "type": "BEGIN_QUOTE",
+    "named": false
+  },
+  {
+    "type": "BEGIN_VERSE",
+    "named": false
+  },
+  {
     "type": "END_EXAMPLE",
     "named": false
   },
   {
+    "type": "END_QUOTE",
+    "named": false
+  },
+  {
+    "type": "END_VERSE",
+    "named": false
+  },
+  {
     "type": "begin_example",
+    "named": false
+  },
+  {
+    "type": "begin_quote",
+    "named": false
+  },
+  {
+    "type": "begin_verse",
     "named": false
   },
   {
@@ -97,6 +139,14 @@
   },
   {
     "type": "end_example",
+    "named": false
+  },
+  {
+    "type": "end_quote",
+    "named": false
+  },
+  {
+    "type": "end_verse",
     "named": false
   }
 ]

@@ -82,6 +82,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "quote"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "verse"
+        },
+        {
+          "type": "SYMBOL",
           "name": "line"
         }
       ]
@@ -241,6 +249,116 @@
             {
               "type": "STRING",
               "value": "end_example"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "quote": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_poundplus"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "BEGIN_QUOTE"
+            },
+            {
+              "type": "STRING",
+              "value": "begin_quote"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        },
+        {
+          "type": "FIELD",
+          "name": "contents",
+          "content": {
+            "type": "PATTERN",
+            "value": "[^(#\\+)]*"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_poundplus"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "END_QUOTE"
+            },
+            {
+              "type": "STRING",
+              "value": "end_quote"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "verse": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_poundplus"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "BEGIN_VERSE"
+            },
+            {
+              "type": "STRING",
+              "value": "begin_verse"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        },
+        {
+          "type": "FIELD",
+          "name": "contents",
+          "content": {
+            "type": "PATTERN",
+            "value": "[^(#\\+)]*"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_poundplus"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "END_VERSE"
+            },
+            {
+              "type": "STRING",
+              "value": "end_verse"
             }
           ]
         },
