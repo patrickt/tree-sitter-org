@@ -1,0 +1,5 @@
+This project declares a [[https://tree-sitter.github.io/tree-sitter/][tree-sitter]] grammar for [[https://en.wikipedia.org/wiki/Org-mode][Org-mode]] documents.
+
+As with most tree-sitter parsers, it accepts a slight superset of the [[https://orgmode.org/worg/dev/org-syntax.html][Org grammar]].
+
+Thanks to [[https://github.com/fosskers/][@fosskers]], to whose Org-mode parser in Haskell I referred often.
