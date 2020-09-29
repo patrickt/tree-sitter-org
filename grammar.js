@@ -1,5 +1,13 @@
 // TODO: we may need a word rule, and text to become repeat(word)
 
+const PREC = {
+  EMPHASIS: 1,
+  SOURCE_BLOCK: 1,
+  BLOCK_START: 1,
+
+  BAREWORD: -1,
+}
+
 module.exports = grammar({
   name: 'org',
 
@@ -39,24 +47,24 @@ module.exports = grammar({
       $._bareword
     ),
 
-    _bareword: $ => token(prec(-1, /[A-z#!]+/)),
+    _bareword: $ => token(prec(PREC.BAREWORD, /[A-z#!]+/)),
 
     bold: $ => seq(
-      token(prec(1, '*')),
+      token(prec(PREC.EMPHASIS, '*')),
       $._bareword,
-      token(prec(1, '*')),
+      token(prec(PREC.EMPHASIS, '*')),
     ),
 
-    _poundplus: $ => token(prec(1, "#+")),
+    _poundplus: $ => token(prec(PREC.BLOCK_START, "#+")),
 
     code: $=> seq(
       $._poundplus,
-      token(prec(1, choice("BEGIN_SRC", "begin_src"))),
+      token(prec(PREC.SOURCE_BLOCK, choice("BEGIN_SRC", "begin_src"))),
       field('language', optional(/ [A-z]+/)),
       '\n',
       field('contents', /[^(#\+)]*/),
       $._poundplus,
-      token(prec(1, choice("END_SRC", "end_src"))),
+      token(prec(PREC.SOURCE_BLOCK, choice("END_SRC", "end_src"))),
       '\n'
     ),
 
