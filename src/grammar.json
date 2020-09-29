@@ -41,26 +41,6 @@
         }
       ]
     },
-    "text": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "TOKEN",
-          "content": {
-            "type": "PREC",
-            "value": -1,
-            "content": {
-              "type": "PATTERN",
-              "value": ".+"
-            }
-          }
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
-    },
     "comment": {
       "type": "PATTERN",
       "value": "# .*\\n"
@@ -444,9 +424,7 @@
   ],
   "conflicts": [],
   "externals": [],
-  "inline": [
-    "text"
-  ],
+  "inline": [],
   "supertypes": []
 }
 

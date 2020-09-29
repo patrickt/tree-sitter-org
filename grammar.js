@@ -7,8 +7,6 @@ module.exports = grammar({
   // at the cost of some strict standard compliance
   extras: $ => [/\s/],
 
-  inline: $ => [$.text],
-
   rules: {
     document: $ => repeat($.block),
 
@@ -19,8 +17,6 @@ module.exports = grammar({
       field('value', /.+/),
       '\n'
     ),
-
-    text: $ => seq(token(prec(-1, /.+/)), '\n'),
 
     comment: $ => /# .*\n/,
 
